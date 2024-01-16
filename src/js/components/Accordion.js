@@ -80,7 +80,7 @@ class Accordion extends HTMLElement {
             <section class="accordion">
                 <div class="accordion-wrapper">
                     <form id="searchForm" class="search">
-                        <input type="text" id="search" name="q" class="search-bar"placeholder="Enter your keywords">
+                        <input type="text" id="search" name="q" class="search-bar"placeholder="Keywords">
                     </form>
                     <div class="no-result">
                         <p class="no-result-copy">No results found.</p>
