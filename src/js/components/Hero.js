@@ -7,10 +7,10 @@ class Hero extends HTMLElement {
       this.innerHTML = `
         <div class="hero">
             <picture class="hero__image">
-                <img src="https://picsum.photos/1200/400" alt="random image" />
+                <img src="https://picsum.photos/1260/400" alt="random image" />
             </picture>
             <picture class="hero__blur" alt="random immage blurred">
-                <img src="https://picsum.photos/1200/400" alt="random image blurred" />
+                <img src="https://picsum.photos/1260/400" alt="random image blurred" />
             </picture>
             <div class="hero__content">
                 <div class="hero__box">
@@ -19,7 +19,7 @@ class Hero extends HTMLElement {
                             Frequently asked questions
                         </h1>
                         <p>
-                            Welcome to our Frequently Asked Questions (FAQ) section. Whether you're a new customer or a returning visitor, this page is designed to provide you with quick and informative answers to common queries.
+                        Welcome to our FAQ section! Here, you'll find answers to common questions, a search filter for quick information, and a chatbot for additional support. If you still have questions, our contact form is always available for personalized assistance. Happy exploring!
                         </p>
                     </div>
                 </div>

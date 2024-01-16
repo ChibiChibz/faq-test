@@ -8,7 +8,7 @@ class Footer extends HTMLElement {
         <footer>
             <section class="footer">
             <div class="footer-wrapper">
-                <h2>Could your question not be answered yet? Contact our customer support directly.</h2>
+                <h2>Could your question not be answered yet? </br>Contact our customer support directly.</h2>
                 <div class="contact-form">
                 <form action="">
                     <div class="contact-inputs">
@@ -17,16 +17,6 @@ class Footer extends HTMLElement {
                             <input type="text" name="name" />
                             <label for="email">Email</label>
                             <input type="email" name="email" />
-                            <label for="phone">Phone (optional)</label>
-                            <input type="tel" name="phone" />
-                            <label for="country">Country</label>
-                            <select id="country" name="country" class="form-control">
-                                <option disabled selected value></option>
-                                <option value="Germany">Germany</option>                                
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
-                                <option value="Viet Nam">Viet Nam</option>
-                            </select>
                         </div>
                         <div class="contact-message">
                             <label for="message">Your Message</label>

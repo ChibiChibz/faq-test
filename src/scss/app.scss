@@ -6,6 +6,7 @@
 @import './components/header';
 @import './components/hero';
 @import './components/accordion';
+@import './components/chat';
 @import './components/footer';
 
 main section {
@@ -28,6 +29,10 @@ main section {
     margin-top: 2rem;
     @include breakpoint(medium) {
       margin-top: 0;
+    }
+
+    &:hover {
+        background-color: color(green);
     }
   }
 

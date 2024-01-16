@@ -1,0 +1,59 @@
+.chat {
+    position: fixed;
+    right: 15px;
+    bottom: 10%;
+    background-color: color(red);
+    color: color(white);
+    padding: .5rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &-teaser{
+        display: flex;
+        color: color(white);
+
+        &-text {
+            margin-right: .25rem;
+        }
+
+        svg {
+            fill: color(white);
+        }
+    }
+
+    &-window {
+        display: none;
+        background-color: color(red);
+        color: color(white);
+        padding: .5rem;
+        border-radius: 50%;
+        width: 400px;
+        height: 620px;
+    }
+
+    &.active {
+
+        
+        background-color: color(red);
+        color: color(white);
+        padding: .25rem;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        .chat-teaser {
+            display: none;
+        }
+        .chat-window {
+            display: block;
+
+            &-close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                cursor: pointer;
+                color: color(black);
+                font-weight: 500;
+            }
+        }
+    }
+}

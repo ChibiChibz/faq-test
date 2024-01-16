@@ -55,7 +55,7 @@ class Header extends HTMLElement {
                         </ul>
                         <form class="search-form" action="https://www.kaufland.de/suche.html" method="get">
                             <input type="text" name="q" placeholder="Search" />
-                            <button type="submit">
+                            <button type="submit button">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -85,6 +85,32 @@ class Header extends HTMLElement {
       const searchValue = searchInput.value;
       const searchUrl = `https://www.kaufland.de/s/?search_value=${encodeURIComponent(searchValue)}`;
       window.location.href = searchUrl;
+    });
+
+    let burger = document.getElementById('burger');
+    let openMenu = document.getElementById('menu-open');
+    let closeMenu = document.getElementById('menu-close');
+    let navLinks = document.getElementById('nav-links');
+
+
+    burger.addEventListener('click', function() {
+        console.log('clicked');
+        openMenu.classList.toggle('active');
+        closeMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('disable-scroll');
+
+    });
+
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 959) {
+            openMenu.classList.remove('active');
+            openMenu.classList.add('active');
+            closeMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('disable-scroll');
+        }
     });
   }
   isLinkActive(url) {

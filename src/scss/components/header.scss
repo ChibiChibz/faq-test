@@ -5,7 +5,11 @@ nav {
         z-index: 2;
 
         img {
-            height: 100px;
+            height: 50px;
+
+            @include breakpoint(medium) {
+                height: 100px;
+            }
         }
     }
     .nav{
@@ -48,24 +52,38 @@ nav {
         &-container{
             width: 100%;
             margin-left: 1rem;
+            position: absolute;
+            @include breakpoint(medium) {
+                align-items: center;
+                position: relative;
+            }
 
 
             .search{
+                
                 &-form{
+
                     width: 100%;
                     height: fit-content;
-                    display: flex;
+                    display: none;
+                    @include breakpoint(medium) {
+                        display: flex;
+                    }
 
                     input{
                         width: 100%;
                         padding: .5rem;
-                        border: 1px solid color(black);
                         border-radius: 0;
                         font-family: "Inter";
-                        font-size: 14px;
-                        line-height: 24px;
-                        font-weight: 500;
-                        margin: 1rem 0 0 1rem;
+                        margin: 0rem 0 0 1rem;
+                        width: 100%;
+                        border: 1px solid color(medium-gray);
+                        font-size: 1rem;
+                        line-height: 1.5;
+                        color: color(black);
+                        background-color: color(white);
+                        background-clip: padding-box;
+                        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                     }
 
                     button{
@@ -77,11 +95,14 @@ nav {
                         line-height: 24px;
                         text-align: center;
                         font-weight: 500;
-                        border: 1px solid color(black);
                         border-radius: 0;
                         margin-top: auto;
                         height: 45px;
                         width: 45px;
+
+                        &:hover{
+                            background-color: color(green);
+                        }
 
                         svg *{
                             fill: color(white);
@@ -108,8 +129,8 @@ nav {
                 padding-top: 100px;
                 z-index: 1;
                 li {
-                    text-align: center;
-                    padding: 1rem 0;
+                    padding: 1rem 1rem;
+                    font-size: 28px;
                 }
             }
             @include breakpoint(medium) {
@@ -120,6 +141,7 @@ nav {
     
             li {
                 position: relative;
+                padding: 1rem 0;
                 a { 
                     position: relative;
                     padding: 1rem;

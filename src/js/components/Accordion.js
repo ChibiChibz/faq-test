@@ -79,11 +79,12 @@ class Accordion extends HTMLElement {
         this.innerHTML = `
             <section class="accordion">
                 <div class="accordion-wrapper">
-                    <h2 class="accordion-headline">Accordion vs. Search Filter</h2>
-                    <p class="accordion-copy">I don't know if the filter function would work, but it would be really cool.</p>
                     <form id="searchForm" class="search">
-                        <input type="text" id="search" name="q" class="search-bar"placeholder="Enter your search term">
+                        <input type="text" id="search" name="q" class="search-bar"placeholder="Enter your keywords">
                     </form>
+                    <div class="no-result">
+                        <p class="no-result-copy">No results found.</p>
+                    </div>
                     <div class="accordion-container">
                         ${postsToDisplay.map((post, index) => `
                             <div class="accordion-item ${this.openItems.includes(index) ? 'active' : ''}">
@@ -164,6 +165,7 @@ class Accordion extends HTMLElement {
     filterResults(searchTerm) {
         // If the search term is empty, reset to the initial state
         if (!searchTerm) {
+            this.openItems = []; // Clear the open items array
             this.renderAccordion();
             return;
         }
@@ -210,8 +212,8 @@ class Accordion extends HTMLElement {
 
             // hide the load more button if results are filtered
             const loadMoreButton = this.querySelector('#loadMoreBtn');
-            if (loadMoreButton) {
-                loadMoreButton.classList.toggle('hidden', this.openItems.length > 0);
+            if (loadMoreButton.classList.contains('hidden') === false) {
+                loadMoreButton.classList.toggle('hidden');
             }
             
         });
