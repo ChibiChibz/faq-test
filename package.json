@@ -11,8 +11,6 @@
     "compile-scss": "sass --style compressed --no-source-map src/scss/app.scss:dist/css/main.css",
     "watch-scss": "npm run compile-scss -- --watch",
     "copy-fonts": "mkdir -p dist/fonts && cp src/fonts/* dist/fonts",
-    "build": "npm run compile-scss && npm run copy-fonts",
-    "start": "npm run watch-scss & npx http-server -p 8080"
   }
   
 }
