@@ -8,6 +8,7 @@ class App {
 	constructor() {
 		// init comoponents
 		new Header();
+        new Hero();
         new Accordion();
         new Footer();
 	}
