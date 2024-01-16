@@ -1,0 +1,180 @@
+footer {
+  .footer {
+    background: color(light-gray);
+    color: color(black);
+    padding: 2rem;
+
+    &-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      @include breakpoint(medium) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .contact {
+      &-form {
+        .contact-inputs {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap: 1rem;
+          font-family: "Inter";
+
+          @include breakpoint(medium) {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .contact-info {
+          display: block;
+          margin-top: 1rem;
+
+          label {
+            font-weight: 500;
+          }
+
+          * {
+            width: 100%;
+          }
+          input,
+          select {
+            padding: 0.5rem;
+            height: 2rem;
+            background-color: color(white);
+          }
+        }
+        .contact-message {
+          display: block;
+          margin-top: 1rem;
+          height: 100%;
+
+          label {
+            height: auto;
+            font-weight: 500;
+          }
+
+          textarea {
+            height: 12rem;
+          }
+          * {
+            width: 100%;
+          }
+        }
+        .contact-submit {
+          display: flex;
+          margin: 2rem 0;
+          flex-flow: row wrap;
+          align-items: center;
+          #consent {
+            display: grid;
+            place-content: center;
+            margin: auto 1rem auto 0;
+            height: 1rem;
+            width: 1rem;
+            background-color: transparent;
+            color: color(ink);
+            border: 2px solid color(black);
+            border-radius: 25%;
+            // appearance: checkbox;
+
+            &::before {
+              content: "";
+              width: 0.65rem;
+              height: 0.65rem;
+              transform: scale(0);
+              transition: 120ms transform ease-in-out;
+              box-shadow: inset 1em 1em color(black);
+            }
+            &:checked::before {
+              transform: scale(1);
+            }
+          }
+          label {
+            width: 90%;
+            @include breakpoint(medium) {
+              width: initial;
+            }
+          }
+        }
+      }
+    }
+
+    input,
+    textarea {
+      background-color: color(white);
+    }
+  }
+
+  .bottombar {
+    background-color: color(white);
+    padding: 1rem 2rem;
+    color: color(black);
+    font-family: "Inter";
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    width: 100%;
+    &-wrapper {
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+
+      div ul {
+        display: flex;
+        gap: 1rem;
+        li {
+          justify-self: center;
+          height: 100%;
+          display: flex;
+          a {
+            margin: auto 0;
+          }
+        }
+      }
+      .links {
+        display: flex;
+        width: 50%;
+        @include breakpoint(medium) {
+          width: initial;
+        }
+      }
+      .social-media {
+        display: flex;
+        width: 40%;
+        justify-content: flex-end;
+        @include breakpoint(medium) {
+          width: initial;
+        }
+        ul {
+          gap: 0.25rem;
+        }
+        svg {
+          padding: 3px;
+          height: 20px;
+          width: 20px;
+          margin: auto 0;
+          color: color(white);
+          fill: color(white);
+          transform: translateY(4px);
+          background-color: color(black);
+
+          * {
+            color: color(white);
+            fill: color(white);
+          }
+        }
+      }
+      .copyright {
+        display: flex;
+        text-align: center;
+        margin: auto 0;
+        margin: 0 auto;
+        @include breakpoint(medium) {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

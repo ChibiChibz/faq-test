@@ -1,0 +1,124 @@
+nav {
+    padding: 1rem 2rem;
+    
+    .logo {
+        z-index: 2;
+
+        img {
+            height: 50px;
+        }
+    }
+    .nav{
+
+        &-wrapper {
+            margin: 0 auto;
+            display: flex;
+            max-width: 1200px;
+            justify-content: space-between;
+            
+        }
+        &-burger{
+            height: 3rem;
+            width: 3rem;
+            padding: .25rem;
+            z-index: 2;
+            @include breakpoint(medium) {
+                display: none;
+            }
+            svg *{
+                fill: color(black);
+            }
+
+            #menu {
+                &-open{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                }
+                &-close{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                }
+            }
+        }
+        &-links {
+            
+    
+            display: none;
+
+            &.active{
+                display: block;
+                background-color: color(white);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding-top: 100px;
+                z-index: 1;
+                li {
+                    text-align: center;
+                    padding: 1rem 0;
+                }
+            }
+            @include breakpoint(medium) {
+                display: flex;
+                align-items: center;
+            }
+    
+            li {
+                position: relative;
+                a { 
+                    position: relative;
+                    padding: 1rem;
+                    text-decoration: none;
+                    color: color(ink);
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0.5rem;
+                        left: 50%;
+                        width: 0%;
+                        height: 2px;
+                        background: color(black);
+                        opacity: 0;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    &.active,&:hover {
+                        text-decoration: none;
+
+                        &::after {
+                            content: "";
+                            left: 1rem;
+                            bottom: 0.5rem;
+                            width: calc(100% - 2rem);
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                &.active{
+                    color: color(red);
+                    a { 
+                        color: color(red);
+                        text-decoration: none;
+                    }
+                }
+                @include breakpoint(medium) {
+                    margin: 0 1rem;
+                }
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
+}

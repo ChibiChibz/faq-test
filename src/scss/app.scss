@@ -1,0 +1,45 @@
+// import global styles
+@import './base/global';
+@import './base/fonts';
+
+// import components
+@import './components/header';
+@import './components/hero';
+@import './components/accordion';
+@import './components/footer';
+
+main section {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 1260px;
+}
+
+.button {
+    margin-left: auto;
+    background-color: color(black);
+    color: color(white);
+    padding: 0.5rem 1rem;
+    font-family: "Inter";
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 500;
+
+    margin-top: 2rem;
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+.headline-section {
+    background: color(red);
+    padding: 1rem 2rem;
+    max-width: unset;
+    
+    .headline-text {
+        color: color(white);
+        max-width: 1200px;
+        margin: 0 auto;
+        text-transform: uppercase;
+    }
+}

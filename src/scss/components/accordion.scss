@@ -1,0 +1,79 @@
+.accordion {
+
+    &-wrapper {
+        max-width: 740px;
+    }
+
+    &-item {
+        margin-bottom: 1rem;
+
+        &.active {
+            .accordion-title {
+                background-color: color(dark-gray);
+                color: color(white);
+                &:hover{
+                    background-color: color(black);
+                    color: color(white);
+                }
+
+                &-icon {
+                    transform: rotate(270deg);
+
+                    svg *{
+                        fill: color(white);
+                    }
+                }
+            }
+            .accordion-content {
+                max-height: 100vh;
+                opacity: 1;
+            }
+        }
+    }
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: color(medium-gray);
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-weight: 500;
+
+    &-icon {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        margin: auto 0 auto auto;
+        transform: rotate(90deg);
+
+        svg *{
+            fill: color(black);
+            transition: all 0.3s ease;
+        }
+    }
+
+    &:hover{
+        background-color: color(dark-gray);
+        color: color(white);
+
+        .accordion-title-icon svg *{
+            fill: color(white);
+        }
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .6s ease;    
+
+    &-copy {
+        padding: 1rem;
+    }
+  }
+
+}

@@ -1,0 +1,125 @@
+@mixin breakpoint($breakpoint, $until: false) {
+	// If the key exists in the map
+	@if map-has-key($screenSizeMap, $breakpoint) {
+		@if $until {
+			@media (max-width: (map-get($screenSizeMap, $breakpoint) - 1px)) {
+				@content;
+			}
+		} @else {
+			@media (min-width: map-get($screenSizeMap, $breakpoint)) {
+				@content;
+			}
+		}
+	}
+
+	// If the key doesn't exist in the map
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($screenSizeMap)}.";
+	}
+}
+
+$screenSizeMap: (
+	small: 640px,
+	medium: 960px,
+	large: 1200px,
+	xlarge: 1600px,
+	xxlarge: 1950px,
+);
+
+@function color($color, $lightness: false) {
+	$base-color: map-get($colorMap, $color);
+
+	@if $lightness {
+		@return scale-color($base-color, $lightness: $lightness);
+	} @else {
+		@return $base-color;
+	}
+}
+
+$colorMap: (
+	black: #424242,
+    red: #e10915,
+    ink: #2c3331,
+	white: #ffffff,
+    light-gray: rgb(240, 240, 240),
+	medium-gray: #d9d9d9,
+	dark-gray: #8d8d8d,
+);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+    font-weight: 200;
+}
+
+
+ul {
+	list-style: none;
+}
+
+input, button {
+	appearance: none;
+	border-radius: 0;
+	background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-family: 'Inter';
+    font-size: 64px;
+    text-transform: uppercase;
+    line-height: 72px;
+}
+h2 {
+    font-family: 'Inter';
+    font-size: 34px;
+    line-height: 34px;
+}
+h3 {
+    font-family: 'Inter';
+    font-size: 20px;
+    line-height: 28px;
+}
+h4 {
+    font-family: 'Inter';
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 72px;
+}
+p {
+    font-family: 'Inter';
+    font-size: 14px;
+    line-height: 24px;
+}
+a {
+    color: color(black);
+	cursor: pointer;
+}
+
+body {
+    font-family: 'Inter';
+    font-size: 16px;
+    line-height: 1.5;
+    &.disable-scroll {
+        overflow: hidden;
+    }
+    
+}
