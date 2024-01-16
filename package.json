@@ -4,6 +4,7 @@
   "main": "app.js",
   "type": "module",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "sass": "^1.69.7",
     "watch": "^1.0.2",
     "webpack": "^5.89.0",
@@ -13,7 +14,7 @@
     "compile-scss": "sass --style compressed --no-source-map src/scss/app.scss:public/css/main.css",
     "watch-scss": "npm run compile-scss -- --watch",
     "copy-fonts": "mkdir -p public/fonts && cp src/fonts/* public/fonts",
-    "watch": "npm run compile-scss && npm run copy-fonts && webpack --mode development --watch",
+    "watch": "concurrently \"npm run watch-scss\" \"npm run copy-fonts\" \"webpack -- --mode development --watch\"",
     "start": "npm run watch & http-server -c-1 -o -p 8080"
   },
   "dependencies": {

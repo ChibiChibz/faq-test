@@ -41,21 +41,51 @@ class Header extends HTMLElement {
                             </svg>
                         </div>
                     </button>
-                    <ul id="nav-links" class="nav-links">
-                        <li>
-                            <a href="https://www.kaufland.de/" class="${this.isLinkActive('https://www.kaufland.de/') ? 'active' : ''}">Online-Marktplatz</a>
-                        </li>
-                        <li>
-                            <a href="https://filiale.kaufland.de/" class="${this.isLinkActive('https://filiale.kaufland.de/') ? 'active' : ''}">Filial-Angebote</a>
-                        </li>
-                        <li>
-                            <a href="${window.location.href}" class="${this.isLinkActive(window.location.href) ? 'active' : ''}">FAQ</a>
-                        </li>
-                    </ul>
+                    <div class="nav-container">
+                        <ul id="nav-links" class="nav-links">
+                            <li>
+                                <a href="https://www.kaufland.de/" class="${this.isLinkActive('https://www.kaufland.de/') ? 'active' : ''}">Online-Marktplatz</a>
+                            </li>
+                            <li>
+                                <a href="https://filiale.kaufland.de/" class="${this.isLinkActive('https://filiale.kaufland.de/') ? 'active' : ''}">Filial-Angebote</a>
+                            </li>
+                            <li>
+                                <a href="${window.location.href}" class="${this.isLinkActive(window.location.href) ? 'active' : ''}">FAQ</a>
+                            </li>
+                        </ul>
+                        <form class="search-form" action="https://www.kaufland.de/suche.html" method="get">
+                            <input type="text" name="q" placeholder="Search" />
+                            <button type="submit">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                    fill="#020203"
+                                    fill-rule="evenodd"
+                                    d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.7.7l.27.28v.79l4.25 4.24a1 1 0 101.42-1.42L15.5 14zm-6 0a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"
+                                    clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>    
     `;
+
+    const searchInput = this.querySelector('#search-input');
+    const form = this.querySelector('.search-form');
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const searchValue = searchInput.value;
+      const searchUrl = `https://www.kaufland.de/s/?search_value=${encodeURIComponent(searchValue)}`;
+      window.location.href = searchUrl;
+    });
   }
   isLinkActive(url) {
     // Get the current page URL

@@ -4,8 +4,12 @@
         background-color: color(red);
     }
 
+    button.hidden {
+        display: none;
+    }
     &-wrapper {
         max-width: 740px;
+
     }
 
     &-item {

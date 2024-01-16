@@ -197,6 +197,23 @@ class Accordion extends HTMLElement {
             // Highlight matching words in body
             const bodyElement = item.querySelector('.accordion-content-copy');
             bodyElement.innerHTML = this.highlightMatches(this.data[index].body, searchTerm);
+
+            // Update the openItems array based on the toggle
+            if (item.classList.contains('active')) {
+                this.openItems.push(index);
+            } else {
+                this.openItems = this.openItems.filter(item => item !== index);
+            }
+
+            // Update the scroll position
+            window.scrollTo(0, this.scrollPosition);
+
+            // hide the load more button if results are filtered
+            const loadMoreButton = this.querySelector('#loadMoreBtn');
+            if (loadMoreButton) {
+                loadMoreButton.classList.toggle('hidden', this.openItems.length > 0);
+            }
+            
         });
     }
     
