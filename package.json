@@ -7,10 +7,4 @@
     "sass": "^1.69.7",
     "watch": "^1.0.2"
   },
-  "scripts": {
-    "compile-scss": "sass --style compressed --no-source-map src/scss/app.scss:dist/css/main.css",
-    "watch-scss": "npm run compile-scss -- --watch",
-    "copy-fonts": "mkdir -p dist/fonts && cp src/fonts/* dist/fonts",
-  }
-  
 }
