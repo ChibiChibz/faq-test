@@ -1,7 +1,6 @@
 class Footer extends HTMLElement {
     constructor() {
       super();
-  
       // Bind the submit event to a custom method
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -35,6 +34,7 @@ class Footer extends HTMLElement {
                   </div>
                 </form>
               </div>
+              <p class="contact-success">Thank you for your message! We will get back to you soon.</p>
             </div>
           </section>
           <section class="bottombar">
@@ -73,7 +73,7 @@ class Footer extends HTMLElement {
       // Here you can add what should happen after a successful validation
       console.log("Form submitted with message: " + message);
       // Update DOM with a success message
-      this.innerHTML += `<p>Thank you for your message! We will get back to you soon.</p>`;
+      this.querySelector('.contact-success').classList.add('active');
       // Reset the form
       this.querySelector('#contactForm').reset();
     }
