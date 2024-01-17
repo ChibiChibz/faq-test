@@ -103,7 +103,7 @@ class Accordion extends HTMLElement {
                         `).join('')}
                         ${postsNotDisplayed.map((post, index) => `
                             <div class="accordion-item hidden">
-                                <button class="accordion-title" data-index="${index}">
+                                <button class="accordion-title" data-index="${index+this.postsToShow}">
                                     <div>${post.title}</div>
                                     <div class="accordion-title-icon">
                                         <svg role="img" focusable="false" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" class="svg-icon__icon"><path d="m6.71 21.71-1.42-1.42 9.3-9.29-9.3-9.29L6.71.29 17.41 11 6.71 21.71Z"></path></svg>
@@ -134,14 +134,6 @@ class Accordion extends HTMLElement {
         // Attach click event listeners to the accordion buttons to toggle the "active" class
         this.querySelectorAll('.accordion-title').forEach(button => {
             button.addEventListener('click', (event) => this.toggleAccordionContent(event));
-        });
-
-        // Attach click event listener to the accordion container for event delegation
-        this.querySelector('.accordion-container').addEventListener('click', (event) => {
-            const accordionTitle = event.target.closest('.accordion-title');
-            if (accordionTitle) {
-                this.toggleAccordionContent(accordionTitle);
-            }
         });
 
         this.setupSearchFilter()
@@ -229,8 +221,19 @@ class Accordion extends HTMLElement {
     
 
     toggleAccordionContent(event) {
+        console.log(event);
+        // Ensure the event and event.target are defined
+        if (!event || !event.target) {
+            console.error("Event or event.target is undefined");
+            return;
+        }
+
         // Get the index from the data-index attribute
         const index = event.target.getAttribute('data-index');
+        if (!index) {
+            console.error("Unable to find index attribute");
+            return;
+        }
 
         // Toggle the "active" class on the accordion item
         const accordionItem = this.querySelector(`.accordion-container .accordion-item:nth-child(${parseInt(index) + 1})`);
