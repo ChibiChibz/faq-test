@@ -69,9 +69,13 @@ class Footer extends HTMLElement {
         alert("Please enter a message and agree to the consent.");
         return;
       }
-  
+
       // Here you can add what should happen after a successful validation
       console.log("Form submitted with message: " + message);
+      // Update DOM with a success message
+      this.innerHTML += `<p>Thank you for your message! We will get back to you soon.</p>`;
+      // Reset the form
+      this.querySelector('#contactForm').reset();
     }
   }
   

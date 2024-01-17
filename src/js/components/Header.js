@@ -54,7 +54,7 @@ class Header extends HTMLElement {
                             </li>
                         </ul>
                         <form class="search-form" action="https://www.kaufland.de/suche.html" method="get">
-                            <input type="text" name="q" placeholder="Search" />
+                            <input type="text" id="search-input" name="q" placeholder="Search" />
                             <button type="submit button">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
