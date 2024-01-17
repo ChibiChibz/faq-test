@@ -7,10 +7,10 @@ class Hero extends HTMLElement {
       this.innerHTML = `
         <div class="hero">
             <picture class="hero__image">
-                <img src="https://picsum.photos/1260/400" alt="random image" />
+                <img src="https://picsum.photos/1280/400" alt="random image" />
             </picture>
             <picture class="hero__blur" alt="random immage blurred">
-                <img src="https://picsum.photos/1260/400" alt="random image blurred" />
+                <img src="https://picsum.photos/1280/400" alt="random image blurred" />
             </picture>
             <div class="hero__content">
                 <div class="hero__box">

@@ -12,15 +12,10 @@
 	}
 	&__content {
 		position: relative;
-		transform: translateX(0);
 		margin: 0 auto;
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1280px;
 
-		@include breakpoint(medium) {
-			transform: translateX(0);
-			transform: translateX(-2rem);
-		}
 	}
 
 	&__box {
